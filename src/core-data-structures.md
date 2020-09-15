@@ -77,7 +77,8 @@ pub enum UntaggedValue {
     /// A full inner (or embedded) table
     Table(Vec<Value>),
 
-    /// An error value that represents an error that occurred as the values in the pipeline were built
+    /// An error value that represents an error that occurred
+    /// as the values in the pipeline were built
     Error(ShellError),
 
     /// A block of Nu code, eg `{ ls | get name ; echo "done" }`
