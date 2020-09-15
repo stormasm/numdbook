@@ -28,6 +28,152 @@ pub struct Value {
 }
 ```
 
+##### type_shape.rs
+
+```rust
+
+/// Representation of for the type of a value in Nu
+#[derive(Debug, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum Type {
+    /// A value which has no value
+    Nothing,
+    /// An integer-based value
+    Int,
+    /// A range between two values
+    Range(Box<RangeType>),
+    /// A decimal (floating point) value
+    Decimal,
+    /// A filesize in bytes
+    Filesize,
+    /// A string of text
+    String,
+    /// A line of text (a string with trailing line ending)
+    Line,
+    /// A path through a table
+    ColumnPath,
+    /// A glob pattern (like foo*)
+    Pattern,
+    /// A boolean value
+    Boolean,
+    /// A date value (in UTC)
+    Date,
+    /// A data duration value
+    Duration,
+    /// A filepath value
+    Path,
+    /// A binary (non-text) buffer value
+    Binary,
+
+    /// A row of data
+    Row(Row),
+    /// A full table of data
+    Table(Vec<Type>),
+
+    /// A block of script (TODO)
+    Block,
+    /// An error value (TODO)
+    Error,
+
+    /// Beginning of stream marker (used as bookend markers rather than actual values)
+    BeginningOfStream,
+    /// End of stream marker (used as bookend markers rather than actual values)
+    EndOfStream,
+}
+```
+
+##### hir.rs
+
+```rust
+pub struct InternalCommand {
+    pub name: String,
+    pub name_span: Span,
+    pub args: crate::hir::Call,
+}
+
+
+pub struct ClassifiedBlock {
+    pub block: Block,
+    // this is not a Result to make it crystal clear that these shapes
+    // aren't intended to be used directly with `?`
+    pub failed: Option<ParseError>,
+}
+
+pub struct ClassifiedPipeline {
+    pub commands: Commands,
+}
+
+pub struct Commands {
+    pub list: Vec<ClassifiedCommand>,
+    pub span: Span,
+}
+
+pub struct Block {
+    pub block: Vec<Commands>,
+    pub span: Span,
+}
+
+pub struct ExternalStringCommand {
+    pub name: Spanned<String>,
+    pub args: Vec<Spanned<String>>,
+}
+
+pub struct ExternalArgs {
+    pub list: Vec<SpannedExpression>,
+    pub span: Span,
+}
+
+pub struct ExternalCommand {
+    pub name: String,
+
+    pub name_tag: Tag,
+    pub args: ExternalArgs,
+}
+
+pub struct SpannedExpression {
+    pub expr: Expression,
+    pub span: Span,
+}
+
+pub struct Binary {
+    pub left: SpannedExpression,
+    pub op: SpannedExpression,
+    pub right: SpannedExpression,
+}
+
+pub struct Range {
+    pub left: Option<SpannedExpression>,
+    pub operator: Spanned<RangeOperator>,
+    pub right: Option<SpannedExpression>,
+}
+
+pub struct SpannedLiteral {
+    pub literal: Literal,
+    pub span: Span,
+}
+
+pub struct Path {
+    pub head: SpannedExpression,
+    pub tail: Vec<PathMember>,
+}
+
+pub struct Call {
+    pub head: Box<SpannedExpression>,
+    pub positional: Option<Vec<SpannedExpression>>,
+    pub named: Option<NamedArguments>,
+    pub span: Span,
+    pub external_redirection: ExternalRedirection,
+}
+
+pub struct NamedArguments {
+    pub named: IndexMap<String, NamedValue>,
+}
+
+pub struct Flag {
+    pub(crate) kind: FlagKind,
+    pub(crate) name: Span,
+}
+```
+
 ### nu-source
 
 ##### meta.rs
