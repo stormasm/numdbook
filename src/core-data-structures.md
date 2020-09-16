@@ -96,8 +96,8 @@ pub struct Value {
 
 ```rust
 
-/// Representation of for the type of a value in Nu
-#[derive(Debug, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+/// Representation of the type of a value in Nu
+
 pub enum Type {
     /// A value which has no value
     Nothing,
