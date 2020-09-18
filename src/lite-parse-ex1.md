@@ -1,10 +1,17 @@
-## Lite Parse
+## Lite Parse Example 1
 
 This is going to talk about the lite parser...
 
+```rust
+ls -a
+```
+
+This is an example of the ls command with the flag -a
+
+
 ```javascript
-DEBUG nu_cli::cli > LiteBlock {
-    block: [
+LiteBlock {
+     block: [
         LitePipeline {
             commands: [
                 LiteCommand {
