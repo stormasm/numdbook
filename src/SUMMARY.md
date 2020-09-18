@@ -9,3 +9,4 @@
 	- [table-example](table-example.md)
 - [LiteParse Examples](lite-parse-examples.md)
 	- [liteparse example 1](lite-parse-ex1.md)
+	- [liteparse example 2](lite-parse-ex2.md)
