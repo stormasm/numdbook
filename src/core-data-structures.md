@@ -236,4 +236,25 @@ pub struct Flag {
     pub(crate) kind: FlagKind,
     pub(crate) name: Span,
 }
+
+pub enum Expression {
+    Literal(Literal),
+    ExternalWord,
+    Synthetic(Synthetic),
+    Variable(Variable),
+    Binary(Box<Binary>),
+    Range(Box<Range>),
+    Block(hir::Block),
+    List(Vec<SpannedExpression>),
+    Table(Vec<SpannedExpression>, Vec<Vec<SpannedExpression>>),
+    Path(Box<Path>),
+
+    FilePath(PathBuf),
+    ExternalCommand(ExternalStringCommand),
+    Command,
+    Invocation(hir::Block),
+
+    Boolean(bool),
+    Garbage,
+}
 ```
