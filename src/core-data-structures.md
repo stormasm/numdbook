@@ -193,11 +193,6 @@ pub struct ExternalCommand {
     pub args: ExternalArgs,
 }
 
-pub struct SpannedExpression {
-    pub expr: Expression,
-    pub span: Span,
-}
-
 pub struct Binary {
     pub left: SpannedExpression,
     pub op: SpannedExpression,
@@ -235,6 +230,11 @@ pub struct NamedArguments {
 pub struct Flag {
     pub(crate) kind: FlagKind,
     pub(crate) name: Span,
+}
+
+pub struct SpannedExpression {
+    pub expr: Expression,
+    pub span: Span,
 }
 
 pub enum Expression {
