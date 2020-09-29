@@ -145,6 +145,16 @@ pub enum Type {
 }
 ```
 
+##### evaluate.rs
+
+```rust
+pub struct Scope {
+    vars: IndexMap<String, Value>,
+    env: IndexMap<String, String>,
+    parent: Option<Arc<Scope>>,
+}
+```
+
 ##### hir.rs
 
 ```rust
