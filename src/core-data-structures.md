@@ -249,6 +249,14 @@ pub struct Flag {
     pub(crate) name: Span,
 }
 
+pub enum ClassifiedCommand {
+    Expr(Box<SpannedExpression>),
+    #[allow(unused)]
+    Dynamic(crate::hir::Call),
+    Internal(InternalCommand),
+    Error(ParseError),
+}
+
 pub enum Expression {
     Literal(Literal),
     ExternalWord,
