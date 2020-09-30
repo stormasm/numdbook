@@ -190,6 +190,23 @@ pub struct Block {
     pub span: Span,
 }
 
+pub struct SpannedExpression {
+    pub expr: Expression,
+    pub span: Span,
+}
+
+pub struct Call {
+    pub head: Box<SpannedExpression>,
+    pub positional: Option<Vec<SpannedExpression>>,
+    pub named: Option<NamedArguments>,
+    pub span: Span,
+    pub external_redirection: ExternalRedirection,
+}
+
+pub struct NamedArguments {
+    pub named: IndexMap<String, NamedValue>,
+}
+
 pub struct ExternalStringCommand {
     pub name: Spanned<String>,
     pub args: Vec<Spanned<String>>,
@@ -229,26 +246,9 @@ pub struct Path {
     pub tail: Vec<PathMember>,
 }
 
-pub struct Call {
-    pub head: Box<SpannedExpression>,
-    pub positional: Option<Vec<SpannedExpression>>,
-    pub named: Option<NamedArguments>,
-    pub span: Span,
-    pub external_redirection: ExternalRedirection,
-}
-
-pub struct NamedArguments {
-    pub named: IndexMap<String, NamedValue>,
-}
-
 pub struct Flag {
     pub(crate) kind: FlagKind,
     pub(crate) name: Span,
-}
-
-pub struct SpannedExpression {
-    pub expr: Expression,
-    pub span: Span,
 }
 
 pub enum Expression {
