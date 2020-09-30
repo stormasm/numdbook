@@ -291,10 +291,12 @@ pub enum Expression {
 pub enum Primitive {
     /// An empty value
     Nothing,
-    /// A "big int", an integer with arbitrarily large size (aka not limited to 64-bit)
+    /// A "big int", an integer with arbitrarily large size
+		/// (aka not limited to 64-bit)
     #[serde(with = "serde_bigint")]
     Int(BigInt),
-    /// A "big decimal", an decimal number with arbitrarily large size (aka not limited to 64-bit)
+    /// A "big decimal", an decimal number with arbitrarily large size
+		/// (aka not limited to 64-bit)
     #[serde(with = "serde_bigdecimal")]
     Decimal(BigDecimal),
     /// A count in the number of bytes, used as a filesize
