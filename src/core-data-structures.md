@@ -168,7 +168,6 @@ pub struct InternalCommand {
     pub args: crate::hir::Call,
 }
 
-
 pub struct ClassifiedBlock {
     pub block: Block,
     // this is not a Result to make it crystal clear that these shapes
@@ -207,11 +206,6 @@ pub struct NamedArguments {
     pub named: IndexMap<String, NamedValue>,
 }
 
-pub struct ExternalStringCommand {
-    pub name: Spanned<String>,
-    pub args: Vec<Spanned<String>>,
-}
-
 pub struct ExternalArgs {
     pub list: Vec<SpannedExpression>,
     pub span: Span,
@@ -222,6 +216,11 @@ pub struct ExternalCommand {
 
     pub name_tag: Tag,
     pub args: ExternalArgs,
+}
+
+pub struct ExternalStringCommand {
+    pub name: Spanned<String>,
+    pub args: Vec<Spanned<String>>,
 }
 
 pub struct Binary {
