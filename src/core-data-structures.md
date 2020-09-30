@@ -213,7 +213,6 @@ pub struct ExternalArgs {
 
 pub struct ExternalCommand {
     pub name: String,
-
     pub name_tag: Tag,
     pub args: ExternalArgs,
 }
