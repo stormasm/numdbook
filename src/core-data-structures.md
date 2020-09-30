@@ -291,41 +291,55 @@ pub enum Expression {
 pub enum Primitive {
     /// An empty value
     Nothing,
+
     /// A "big int", an integer with arbitrarily large size
     /// (aka not limited to 64-bit)
     #[serde(with = "serde_bigint")]
     Int(BigInt),
+
     /// A "big decimal", an decimal number with arbitrarily large size
     /// (aka not limited to 64-bit)
     #[serde(with = "serde_bigdecimal")]
     Decimal(BigDecimal),
+
     /// A count in the number of bytes, used as a filesize
     Filesize(u64),
+
     /// A string value
     String(String),
+
     /// A string value with an implied carriage return (or cr/lf) ending
     Line(String),
+
     /// A path to travel to reach a value in a table
     ColumnPath(ColumnPath),
+
     /// A glob pattern, eg foo*
     Pattern(String),
+
     /// A boolean value
     Boolean(bool),
+
     /// A date value, in UTC
     Date(DateTime<Utc>),
+
     /// A count in the number of nanoseconds
     #[serde(with = "serde_bigint")]
     Duration(BigInt),
+
     /// A range of values
     Range(Box<Range>),
+
     /// A file path
     Path(PathBuf),
+
     /// A vector of raw binary data
     #[serde(with = "serde_bytes")]
     Binary(Vec<u8>),
 
     /// Beginning of stream marker, a pseudo-value not intended for tables
     BeginningOfStream,
+
     /// End of stream marker, a pseudo-value not intended for tables
     EndOfStream,
 }
