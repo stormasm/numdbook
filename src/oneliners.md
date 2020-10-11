@@ -2,6 +2,8 @@
 ```
 echo "blue : green" | parse -r '(?P<name>.*?)\s*:\s*(?P<value>.*)'
 
+^echo "red : blue\npurple : green\nwhite : black\n\n" | parse -r '(?P<value>(.|\n)*?)\n\n' | each { echo $it.value | lines | parse -r '(?P<name>.*?)\s*:\s*(?P<value>.*)' }
+
 open /j/tmp25/nushelltmp/data/cpuinfo-tiny.txt | parse -r '(?P<value>(.|\n)*?)\n\n' | each { echo $it.value | lines | parse -r '(?P<name>.*?)\s*:\s*(?P<value>.*)' }
 ```
 
