@@ -1,1 +1,1 @@
-# nushell-notes
+### random notes about nushell
