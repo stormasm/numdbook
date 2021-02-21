@@ -68,3 +68,16 @@ nu-source = { version = "0.27.1", path = "../nu-source" }
 nu-stream = { version = "0.27.1", path = "../nu-stream" }
 nu-value-ext = { version = "0.27.1", path = "../nu-value-ext" }
 ```
+
+### nu-proj / parseval depends...
+
+```rust
+nu-data = {git = "https://github.com/nushell/nushell.git", branch = "main"}
+nu-engine = {git = "https://github.com/nushell/nushell.git", branch = "main"}
+nu-errors = {git = "https://github.com/nushell/nushell.git", branch = "main"}
+nu-parser = {git = "https://github.com/nushell/nushell.git", branch = "main"}
+nu-protocol = {git = "https://github.com/nushell/nushell.git", branch = "main"}
+nu-source = {git = "https://github.com/nushell/nushell.git", branch = "main"}
+nu-stream = {git = "https://github.com/nushell/nushell.git", branch = "main"}
+nu-value-ext = {git = "https://github.com/nushell/nushell.git", branch = "main"}
+```
