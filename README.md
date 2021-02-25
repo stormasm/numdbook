@@ -1,1 +1,1 @@
-### random notes about nushell
+### no code random markdown notes about nushell
