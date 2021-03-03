@@ -4,6 +4,7 @@
 
 - [Data Layout](data.md)
 	- [repr(Rust)](repr-rust.md)
+	- [value](value.md)
 	- [core](core-data-structures.md)
 	- [stack](stack.md)
 	- [table-example](table-example.md)

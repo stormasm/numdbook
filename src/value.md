@@ -1,3 +1,15 @@
+
+### nu-protocol/src/value.rs
+
+```rust
+/// The fundamental structured value that flows through the pipeline, with associated metadata
+#[derive(Debug, Clone, PartialOrd, Ord, Eq, Serialize, Deserialize)]
+pub struct Value {
+    pub value: UntaggedValue,
+    pub tag: Tag,
+}
+```
+
 ```rust
 /// The core structured values that flow through a pipeline
 #[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord, Hash, Serialize, Deserialize)]
@@ -18,3 +30,27 @@ pub enum UntaggedValue {
     Block(Box<hir::CapturedBlock>),
 }
 ```
+
+### nu-source/src/meta.rs
+
+```rust
+pub struct Tag {
+    /// The original source for this value
+    pub anchor: Option<AnchorLocation>,
+    /// The span in the source text for the command that created this value
+    pub span: Span,
+}
+```
+
+```rust
+/// Anchors represent a location that a value originated from. The value may have been loaded from a file, fetched from a website, or parsed from some text
+#[derive(Clone, Debug, Serialize, Deserialize, PartialEq, Eq, PartialOrd, Ord, Hash)]
+pub enum AnchorLocation {
+    /// The originating site where the value was first found
+    Url(String),
+    /// The original file where the value was loaded from
+    File(String),
+    /// The text where the value was parsed from
+    Source(Text),
+}
+```rust
