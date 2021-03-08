@@ -53,4 +53,17 @@ pub enum AnchorLocation {
     /// The text where the value was parsed from
     Source(Text),
 }
+```
+
 ```rust
+/// A `Span` is metadata which indicates the start and end positions.
+/// `Span`s are combined with `AnchorLocation`s to form another type of metadata, a `Tag`.
+/// A `Span`'s end position must be greater than or equal to its start position.
+#[derive(
+    Debug, Default, Clone, Copy, PartialEq, Eq, Ord, PartialOrd, Serialize, Deserialize, Hash,
+)]
+pub struct Span {
+    start: usize,
+    end: usize,
+}
+```
