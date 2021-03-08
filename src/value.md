@@ -8,9 +8,7 @@ pub struct Value {
     pub value: UntaggedValue,
     pub tag: Tag,
 }
-```
 
-```rust
 /// The core structured values that flow through a pipeline
 #[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord, Hash, Serialize, Deserialize)]
 pub enum UntaggedValue {
@@ -40,9 +38,7 @@ pub struct Tag {
     /// The span in the source text for the command that created this value
     pub span: Span,
 }
-```
 
-```rust
 /// Anchors represent a location that a value originated from. The value may have been loaded from a file, fetched from a website, or parsed from some text
 #[derive(Clone, Debug, Serialize, Deserialize, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum AnchorLocation {
@@ -53,15 +49,11 @@ pub enum AnchorLocation {
     /// The text where the value was parsed from
     Source(Text),
 }
-```
 
-```rust
 /// A `Span` is metadata which indicates the start and end positions.
 /// `Span`s are combined with `AnchorLocation`s to form another type of metadata, a `Tag`.
 /// A `Span`'s end position must be greater than or equal to its start position.
-#[derive(
-    Debug, Default, Clone, Copy, PartialEq, Eq, Ord, PartialOrd, Serialize, Deserialize, Hash,
-)]
+#[derive(Debug, Default, Clone, Copy, PartialEq, Eq, Ord, PartialOrd,Serialize, Deserialize, Hash,)]
 pub struct Span {
     start: usize,
     end: usize,
