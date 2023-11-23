@@ -1,6 +1,8 @@
 
 ### Notes on eval.rs
 
+*eval_block* is the top level call to see everything that is going on.
+
 Only 3 methods return
 
 ```rust
@@ -10,6 +12,11 @@ Result<Value, ShellError>
 * eval_expression
 * eval_variable
 * compute
+
+### Expression
+
+### Stack
+
 
 ### Random notes
 
