@@ -1,7 +1,7 @@
 
 ### Notes on eval.rs
 
-*eval_block* is the top level call to see everything that is going on.
+*eval_block* and then *eval_call* are the top level calls to see everything that is going on.
 
 Only 3 methods return
 
