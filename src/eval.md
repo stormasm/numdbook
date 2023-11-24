@@ -1,6 +1,6 @@
 
 
-see *quickcheck_parse* for a much bigger picture :)
+see *quickcheck_parse* for a much bigger picture :smile
 
 #### nu-cli/src/util.rs
 
