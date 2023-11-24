@@ -1,5 +1,7 @@
 
 
+see *quickcheck_parse* for a much bigger picture :)
+
 #### nu-cli/src/util.rs
 
 * *eval_source* is called in *nu-cli/src/repl.rs*
