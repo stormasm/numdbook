@@ -1,5 +1,10 @@
 
-### Notes on eval.rs
+
+#### nu-cli/src/util.rs
+
+* *eval_source* is called in *nu-cli/src/repl.rs*
+
+#### nu-engine/src/eval.rs
 
 *eval_block* and then *eval_call* are the top level calls to see everything that is going on.
 
