@@ -1,4 +1,12 @@
 
+what does the parser produce that is used downstream in the current nushell system.
+
+quite simply the answer is the *block*.
+
+to see this elucidated in more detail check out
+[eval_cmds.rs](https://github.com/nushell/nushell/blob/main/crates/nu-cli/src/eval_cmds.rs)
+
+---
 
 see *quickcheck_parse* for a much bigger picture :)
 
